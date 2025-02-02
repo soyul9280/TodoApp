@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link th:href="@{/css/boostrap.min.css}"
+          href="../css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 560px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="py-5 text-center">
+        <h2>Todo 상세</h2>
+    </div>
+
+    <h2 th:if="${param.status}" th:text="'저장완료'"></h2>
+
+    <div>
+        <label for="todoId">ID</label>
+        <input type="text" id="todoId" name="todoId" class="form-control" value="1" th:value="${todo.id}" readonly>
+    </div>
+    <div>
+        <label for="title">제목</label>
+        <input type="text" id="title" name="title" class="form-control" value="Todo A" th:value="${todo.title}" readonly> </div>
+    <div>
+        <label for="description">설명</label>
+        <input type="text" id="description" name="description" class="form-control" value="Todo A!!" th:value="${todo.description}" readonly>
+    </div>
+    <hr class="my-4">
+
+    <!-- single checkbox -->
+    <div>수행 여부</div> <div>
+    <div class="form-check">
+        <input type="checkbox" id="open" th:field="${todo.open}" class="form-check-input" disabled>
+        <label for="open" class="form-check-label">수행 완료</label>
+    </div>
+</div>
+    <hr class="my-4">
+
+    <div class="row">
+        <div class="col">
+            <button class="w-100 btn btn-primary btn-lg"
+                    onclick="location.href='editForm.html'"
+                    th:onclick="|location.href='@{/basic/todos/{todoId}/edit(todoId=${todo.id})}'|"
+                    type="button">Todo 수정</button>
+        </div>
+        <div class="col">
+            <button class="w-100 btn btn-secondary btn-lg"
+                    onclick="location.href='items.html'"
+                    th:onclick="|location.href='@{/basic/todos}'|"
+                    type="button">목록으로</button>
+        </div>
+    </div>
+</div> <!-- /container -->
+</body>
+</html>

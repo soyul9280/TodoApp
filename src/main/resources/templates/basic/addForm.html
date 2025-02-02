@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link th:href="@{/css/boostrap.min.css}"
+          href="../css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 560px;
+        }
+        .field-error {
+            border-color: #dc3545;
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="py-5 text-center">
+        <h2>Todo 등록</h2>
+    </div>
+    <h4 class="mb-3">Todo 입력</h4>
+    <form action="todo.html" th:action th:object="${todo}" method="post">
+        <div>
+            <label for="title" >제목</label>
+            <input type="text" id="title" th:field="*{title}"
+                   th:errorclass="field-error" class="form-control" placeholder="제목을 입력하세요">
+            <div class="field-error" th:errors="*{title}">
+                제목 오류
+            </div>
+        </div>
+
+        <div>
+            <label for="description">설명</label>
+            <input type="text" id="description" th:field="*{description}"
+                   th:errorclass="field-error" class="form-control" placeholder="설명을 입력하세요">
+            <div class="field-error" th:errors="*{description}">
+                설명 오류
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <button class="w-100 btn btn-primary btn-lg" type="submit">저장</button>
+            </div>
+            <div class="col">
+                <button class="w-100 btn btn-secondary btn-lg"
+                        onclick="location.href='todos.html'"
+                        th:onclick="|location.href='@{/basic/todos}'|"
+                        type="button">취소</button>
+            </div>
+        </div>
+    </form>
+</div> <!-- /container -->
+</body>
+</html>

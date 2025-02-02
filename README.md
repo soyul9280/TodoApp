@@ -1,5 +1,5 @@
 # Todo 앱
-
+추후 해야할 것 : 삭제
 | 메인 화면 |
 |:-------:|
 |<img width="100%" src="https://github.com/user-attachments/assets/f657254e-e2e8-4027-8771-924db498620a">| 
